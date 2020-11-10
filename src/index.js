@@ -153,11 +153,21 @@ const TimezoneSelect = ({
   const handleChange = tz => {
     setSelectedTimezone(tz)
     onChange && onChange(tz)
-  } 
+  }
 
   const constructTz = value => {
     let returnTz
-    if (value.value && value.label)  {
+
+    // Check if passed in a value not in the original options map
+    if (
+      !getOptions.includes(tz => tz.value === value) ||
+      !getOptions.includes(tz => tz.value === value.value)
+    ) {
+      spacetime()
+      return
+    }
+
+    if (value.value && value.label) {
       returnTz = value
     } else if (value.value && !value.label) {
       returnTz = getOptions.find(tz => tz.value === value.value)

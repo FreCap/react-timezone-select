@@ -62,6 +62,7 @@
     "trailingComma": "es5",
     "semi": false,
     "jsxSingleQuote": true,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "printWidth": 80
   }
 }
